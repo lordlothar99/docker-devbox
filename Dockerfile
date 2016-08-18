@@ -10,7 +10,6 @@ RUN \
   groupadd devbox && \
   useradd devbox -s /bin/bash -m -g devbox -G sudo && \
   echo 'devbox:devbox' |chpasswd && \
-  mkdir /home/devbox/app && \
 
   # install open-jdk 8
   apt-get update && \
