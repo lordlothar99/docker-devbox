@@ -10,7 +10,9 @@ ENV MAVEN_HOME /usr/share/maven
 ENV PATH "$PATH:$MAVEN_HOME/bin"
 
 # install utilities
-RUN apt-get -y install vim git sudo zip bzip2 curl
+RUN \
+  apt-get update
+  apt-get -y install vim git sudo zip bzip2 curl
 
 # Install Java.
 RUN \
@@ -26,9 +28,29 @@ RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binar
     && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
     && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
+# install node.js
+RUN \
+  curl -sL https://deb.nodesource.com/setup_4.x | bash && \
+  apt-get install -y nodejs && \
+
+  # upgrade npm
+  npm install -g npm && \
+
+  # install yeoman bower gulp
+  npm install -g \
+    yo \
+    bower \
+    gulp-cli && \
+
+  # cleanup
+  apt-get clean && \
+  rm -rf \
+    /var/lib/apt/lists/* \
+    /tmp/* \
+    /var/tmp/*
+
 # Define working directory.
 WORKDIR /data
-
 
 # Define default command.
 CMD ["bash"]
