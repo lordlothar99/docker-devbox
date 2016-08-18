@@ -1,5 +1,10 @@
 FROM ubuntu:xenial
 
+# Maven env
+ENV MAVEN_VERSION 3.3.9
+ENV MAVEN_HOME /usr/share/maven
+ENV PATH "$PATH:$MAVEN_HOME/bin"
+
 RUN \
   # configure the "devbox" user
   groupadd devbox && \
@@ -23,6 +28,11 @@ RUN \
      python \
      g++ \
      build-essential && \
+
+  # install maven
+  curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share && \
+    mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven && \
+    ln -s /usr/share/maven/bin/mvn /usr/bin/mvn && \
 
   # install node.js
   curl -sL https://deb.nodesource.com/setup_4.x | bash && \
