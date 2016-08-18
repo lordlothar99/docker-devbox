@@ -5,11 +5,11 @@ Based on Ubuntu Xenial
 # Available tools
 * [OpenJDK][] 8
 * [Maven][] 3.3.9
-* [Node.js][] and [npm][]
+* [Node.js][] 4  and [npm][]
 * [Bower][]
 * [Gulp][]
 * [Yeoman][]
-
+* [Git][]
 
 [OpenJDK]: http://openjdk.java.net/
 [Maven]: https://maven.apache.org/
@@ -18,3 +18,4 @@ Based on Ubuntu Xenial
 [Bower]: http://bower.io/
 [Gulp]: http://gulpjs.com/
 [Yeoman]: http://yeoman.io/
+[Git]: https://git-scm.com/
