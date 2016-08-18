@@ -11,7 +11,7 @@ ENV PATH "$PATH:$MAVEN_HOME/bin"
 
 # install utilities
 RUN \
-  apt-get update
+  apt-get update && \
   apt-get -y install vim git sudo zip bzip2 curl
 
 # Install Java.
