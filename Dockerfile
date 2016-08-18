@@ -2,6 +2,9 @@ FROM dockerfile/ubuntu
 
 MAINTAINER François Lecomte
 
+# install utilities
+RUN apt-get -y install vim git sudo zip bzip2 curl
+
 # Install Java.
 RUN \
   echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
