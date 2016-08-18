@@ -6,11 +6,6 @@ ENV MAVEN_HOME /usr/share/maven
 ENV PATH "$PATH:$MAVEN_HOME/bin"
 
 RUN \
-  # configure the "devbox" user
-  groupadd devbox && \
-  useradd devbox -s /bin/bash -m -g devbox -G sudo && \
-  echo 'devbox:devbox' |chpasswd && \
-
   # install open-jdk 8
   apt-get update && \
   apt-get install -y openjdk-8-jdk && \
@@ -59,10 +54,5 @@ RUN \
     /var/lib/apt/lists/* \
     /tmp/* \
     /var/tmp/*
-
-# expose the working directory, the Tomcat port, the BrowserSync ports
-USER devbox
-WORKDIR "/home/devbox"
-VOLUME ["/home/devbox"]
 
 CMD ["bash"]
