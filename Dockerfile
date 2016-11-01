@@ -22,7 +22,8 @@ RUN \
      fontconfig \
      python \
      g++ \
-     build-essential
+     build-essential \
+     xvfb
 
 RUN \
   # install maven
