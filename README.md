@@ -10,7 +10,7 @@ Based on Ubuntu Xenial
 * [Gulp][]
 * [Yeoman][]
 * [Git][]
-* xvfb
+* XVFB
 
 [OpenJDK]: http://openjdk.java.net/
 [Maven]: https://maven.apache.org/
